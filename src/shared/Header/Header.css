@@ -1,0 +1,37 @@
+.nav-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.fonts {
+    font-size: 15px;
+}
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0px 0px 2px rgb(207, 205, 205);
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.sign-out {
+    background-color: #fff;
+    border: none;
+    font-weight: bold;
+}
+
+.user-img {
+    width: 20px;
+    border-radius: 50%;
+}
+
+.user-logo {
+    background-color: #fff;
+    color: black;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}

@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Mountant Military",
+        "price": 23,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/7tbtPTc/watch2.jpg"
+    },
+    {
+        "name": "Rider 20",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/58ZnsKY/watch1.jpg"
+    },
+    {
+        "name": "Quartz King",
+        "price": 43,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/hf0ZFkG/watch12.jpg"
+    },
+    {
+        "name": "Certina 1888",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/By26JD2/watch11.jpg"
+    },
+    {
+        "name": "Rotate",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/B6CJ6Rp/watch10.jpg"
+    },
+    {
+        "name": "Fossil Latina",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/QNgWvQG/watch9.jpg"
+    },
+    {
+        "name": "Quartz Black",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/g4VsVyB/watch8.jpg"
+    },
+    {
+        "name": "U-Boat",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/hFRhHtQ/watch7.jpg"
+    },
+    {
+        "name": "Emporio Armani",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/grZW6zX/watch6.jpg"
+    },
+    {
+        "name": "MontBlanc",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/YTfCC09/watch5.jpg"
+    },
+    {
+        "name": "Fossil Golden",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/hZZ6187/watch4.jpg"
+    },
+    {
+        "name": "Longiness Black",
+        "price": 33,
+        "description": "Watches perform the function of telling time. Watches display the time to you in an accessible and convenient way, without having to measure the movements of the sun and the shadows it casts.",
+        "img": "https://i.ibb.co/7SxwYZK/watch3.jpg"
+    }
+]
