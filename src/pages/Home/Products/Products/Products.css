@@ -1,0 +1,17 @@
+.product-area p{
+    color: black;
+}
+
+.service-card {
+    border: 1px solid rgba(211, 211, 211, 0.425);
+    border-radius: 5px;
+}
+
+.service-card p {
+    color: rgb(49, 49, 49);
+    font-size: 18px;
+}
+
+.body-text {
+    text-align: left;
+}

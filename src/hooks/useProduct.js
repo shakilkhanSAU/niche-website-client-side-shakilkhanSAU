@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 
 const useProducts = () => {
-    const [products, setProducts] = useState([])
+    const [services, setServices] = useState()
     const url = "http://localhost:5000/products"
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setProducts(data)
+                setServices(data)
                 console.log(data)
             })
     }, []);
     return {
-        products
+        services
     }
 }
 export default useProducts;
