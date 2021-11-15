@@ -1,0 +1,35 @@
+.order-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-image {
+    width: 100px;
+}
+
+.order-row {
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    box-shadow: 0 0 15px rgb(236, 233, 233);
+    border-radius: 9px;
+}
+
+.manage-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.description-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.status {
+    font-size: 12px;
+    margin-top: -5px;
+    font-weight: bold;
+    color: rgb(0, 136, 118);
+}

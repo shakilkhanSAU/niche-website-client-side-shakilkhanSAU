@@ -1,36 +1,44 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import './Footer.css'
-import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import { Button, Container } from '@mui/material';
+import { Box } from '@mui/system';
 
 const Footer = () => {
     return (
-        <div className="footer">
-            <Container>
-                <Row>
-                    <Col xs={12} md={4} className="footer-title">
-                        <h2>Tour X</h2>
-                        <p>Discover best tourist place around the world by using TourX. The requested records directly to fuctional qualified doctors the day before or the day of the appointment</p>
-                    </Col>
-                    <Col className="footer-contact" xs={12} md={4}>
-                        <h3>Contact Info</h3>
-                        <p><i className="fas fa-map-marker-alt pe-2"></i>Road No: 123/A, Hironpur, Netrokona</p>
-                        <p><i className="fas fa-clock pe-2"></i>9:00am - 4:00pm</p>
-                        <p><i className="fas fa-phone-alt pe-2"></i>+880 112 323 243</p>
-                    </Col>
-                    <Col className="footer-contact" xs={12} md={4}>
-                        <h3>Quick Access</h3>
-                        <Link to="/about" className="footer-link">About</Link>
-                        <br />
-                        <Link to="/contact" className="footer-link">Contact Us</Link>
-                        <br />
-                        <Link to="/home" className="footer-link">Privacy Policy</Link>
-                        <br />
-                        <Link to="/home" className="footer-link">Terms & Conditions</Link>
-                    </Col>
-                </Row>
+        <div style={{ marginBottom: '-30px', paddingTop: '30px', paddingBottom: '20px', background: '#151931' }}>
+            <Container sx={{ flexGrow: 1, }}>
+                <Grid style={{ textAlign: 'left' }} container>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <h2 style={{ color: '#1976d2', fontSize: '26px' }}>Our Support Team</h2>
+                        <Box style={{ fontSize: '17px', fontWeight: '400', color: 'gray' }}>
+                            <p style={{ fontSize: '17px' }}>Tech Support</p>
+                            <p style={{ fontSize: '17px' }}>Software Support</p>
+                            <p style={{ fontSize: '17px' }}>Online Support</p>
+                        </Box>
+
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <h2 style={{ color: '#1976d2', fontSize: '26px' }}>Services</h2>
+                        <Box style={{ fontSize: '17px', fontWeight: '400', color: 'gray' }}>
+                            <p style={{ fontSize: '17px' }}>Emergency Serives</p>
+                            <p style={{ fontSize: '17px' }}>Offline Services</p>
+                            <p style={{ fontSize: '17px' }}>Online Services</p>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <h2 style={{ color: '#1976d2', fontSize: '26px' }}>Company Address</h2>
+                        <Box style={{ fontSize: '17px', fontWeight: '400', color: 'gray' }}>
+                            <p style={{ fontSize: '16px' }}>New York , Houstoon Yard -32-001</p>
+                            <p style={{ marginBottom: '4px', fontSize: '18px', fontWeight: 'bold' }}>Call Now</p>
+                            <div>
+                                <Button variant="contained">+999 00 22 11 666</Button>
+                            </div>
+                        </Box>
+                    </Grid>
+                </Grid>
+                <p style={{ fontSize: '17px', fontWeight: '300', color: 'gray', paddingTop: '20px', textAlign: 'center' }}>Copyright 2021 All Rights Reserved</p>
             </Container>
-        </div >
+        </div>
     );
 };
 

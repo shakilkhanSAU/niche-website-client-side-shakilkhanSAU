@@ -1,33 +1,23 @@
 import React from 'react';
 import useProducts from '../../../../hooks/useProduct';
-// import { Card, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './Products.css'
-import { Container, Grid, Paper, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
+import { Container, Grid, Typography } from '@mui/material';
+import SingleProduct from '../SingleProduct/SingleProduct';
 
 
 const Products = () => {
     const { services } = useProducts();
     return (
-        // <Container className="product-area">
-        //     <h2>Our Products</h2>
-
-        <Container>
-            <h2>Available Appointments on</h2>
+        <Container sx={{ px: 3, py: 5 }}>
+            <Typography style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '20px' }} variant="h4" gutterBottom component="div">
+                Our Products
+            </Typography>
             <Grid container spacing={2}>
                 {
-                    services?.map(service => <Grid item xs={12} sm={6} md={4}>
-                        <Paper sx={{ py: 5 }} elevation={3}>
-                            <Typography style={{ fontWeight: 'bold', color: '#2FBFB6' }} variant="h5" gutterBottom component="div">
-                                {service?.name}
-                            </Typography>
-                            <Typography style={{ fontWeight: 'bold' }} variant="p" gutterBottom component="div">
-                                {service?.price}
-                            </Typography>
-                            <Button style={{ background: '#2FBFB6', marginTop: '10px' }} variant="contained">Book Appointment</Button>
-                        </Paper>
-                    </Grid>)
+                    services?.slice(6, 12)?.map(service => <SingleProduct
+                        service={service}
+                        key={service?._id}
+                    ></SingleProduct>)
                 }
             </Grid>
         </Container>

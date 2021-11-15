@@ -1,0 +1,37 @@
+.user {
+    margin: 0;
+    padding: 50px 8%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-details img {
+    border-radius: 50%;
+}
+
+.user-details h5 {
+    font-weight: 600;
+}
+
+.user-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-welcome {
+    font-size: 18px;
+    color: gray;
+}
+
+.user-details-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-details-image img {
+    width: 150x;
+}
