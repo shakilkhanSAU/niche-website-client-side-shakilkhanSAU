@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import useAuth from "./useAuth";
 
-const useMyOrder = () => {
+const useMyOrders = () => {
     const { user } = useAuth();
     const email = user.email;
-    const [orders, setOrders] = useState([]);
+    const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`https://warm-chamber-38340.herokuapp.com/myOrders/${email}`)
+        fetch(`http://localhost:5000/myOrders/${email}`)
             .then(res => res.json())
             .then(data => {
-                setOrders(data)
+                setMyOrders(data)
             })
-    }, [email])
+    }, [])
     return {
-        orders,
-        setOrders
+        myOrders,
+        setMyOrders
     }
 }
-export default useMyOrder;
+export default useMyOrders;

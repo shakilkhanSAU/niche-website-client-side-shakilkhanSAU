@@ -8,7 +8,7 @@ const NotFound = () => {
             <div>
                 <img src="https://i.ibb.co/K5SkQnz/404.jpg" className="img-fluid" alt="" />
                 <div className="text-center">
-                    <Link to="/home"><button className="btn-details">Back to Home</button></Link>
+                    <Link to="/home"><button className="btn-notfound">Back to Home</button></Link>
                 </div>
             </div>
         </div>

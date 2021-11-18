@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { Button, CircularProgress, Container } from '@mui/material';
-
 import TextField from '@mui/material/TextField';
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { Box } from '@mui/system';
-import loginBg from './login.jpg'
-import googleimg from './google.png'
-import './Login.css'
+import loginBg from '../Login/login.jpg'
+import googleimg from '../Login/google.png'
+import { Link } from "react-router-dom";
 import Header from '../../../shared/Header/Header';
 import Footer from '../../../shared/Footer/Footer';
 import useAuth from '../../../hooks/useAuth';
@@ -15,9 +14,8 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { loginUser, user, error, googleSignin, isLoading } = useAuth();
+    const { registerNewUser, error, googleSignin, isLoading, user } = useAuth();
 
-    const location = useLocation();
     const history = useHistory();
 
     // input field data finding function
@@ -27,14 +25,19 @@ const Login = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData)
+        console.log(loginData)
     }
 
-    const handleLogin = (e) => {
+    const handleRegistration = (e) => {
         e.preventDefault();
-        if (!user.email) {
-            loginUser(loginData.email, loginData.password, location, history)
-        } else {
+        if (user.email) {
             alert('Please logout first')
+        } else {
+            if (loginData.password !== loginData.password1) {
+                alert("Password does not matched!")
+                return;
+            }
+            registerNewUser(loginData.name, loginData.email, loginData.password, history)
         }
     }
 
@@ -47,20 +50,28 @@ const Login = () => {
         }
     }
 
-
     return (
         <>
             <Header></Header>
-            <Container sx={{ mt: 4 }}>
-                <Grid container spacing={2}>
+            <Container sx={{ py: 5 }}>
+                <Grid container spacing={1}>
                     <Grid style={{ display: 'flex', alignItems: 'center' }} item xs={12} md={6}>
                         <Box style={{ width: '100%' }}>
                             <h3 style={{ fontSize: '33px', color: '#385a64' }}>
-                                Login
+                                Register New Account
                             </h3>
-                            {!isLoading ? <form onSubmit={handleLogin}>
+                            {!isLoading ? <form onSubmit={handleRegistration}>
                                 <TextField
-                                    style={{ width: '90%', marginBottom: '25px' }}
+                                    style={{ width: '90%', marginBottom: '20px' }}
+                                    id="standard-basic"
+                                    label="Name"
+                                    variant="standard"
+                                    name="name"
+                                    onBlur={handleOnChange}
+                                    required
+                                />
+                                <TextField
+                                    style={{ width: '90%', marginBottom: '20px' }}
                                     id="standard-basic"
                                     label="Email"
                                     variant="standard"
@@ -69,12 +80,22 @@ const Login = () => {
                                     required
                                 />
                                 <TextField
-                                    style={{ width: '90%', marginBottom: '25px' }}
+                                    style={{ width: '90%', marginBottom: '20px' }}
                                     id="standard-basic"
                                     type="password"
                                     label="Password"
                                     variant="standard"
                                     name="password"
+                                    onBlur={handleOnChange}
+                                    required
+                                />
+                                <TextField
+                                    style={{ width: '90%', marginBottom: '20px' }}
+                                    id="standard-basic"
+                                    type="password"
+                                    label="Re-enter Password"
+                                    variant="standard"
+                                    name="password1"
                                     onBlur={handleOnChange}
                                     required
                                 />
@@ -85,10 +106,11 @@ const Login = () => {
                                         style={{ width: '90%', padding: '10px', backgroundColor: '#385a64', marginTop: '10px' }} variant="contained">Submit</Button>
                                 </Box>
                                 <p className="error-txt text-danger">
-                                    <Link style={{ color: 'crimson' }} to="/register">Are You New User?</Link>
+                                    <Link style={{ color: 'crimson' }} to="/login">Already Have An Account?</Link>
                                 </p>
-                            </form> :
-                                <CircularProgress></CircularProgress>
+                            </form>
+                                :
+                                <CircularProgress />
                             }
 
                             <div className="py-4 w-100">
@@ -105,6 +127,7 @@ const Login = () => {
                         <img style={{ width: '100%' }} src={loginBg} alt="" />
                     </Grid>
                 </Grid>
+
 
             </Container>
             <Footer></Footer>

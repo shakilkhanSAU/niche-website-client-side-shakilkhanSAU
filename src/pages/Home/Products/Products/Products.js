@@ -6,7 +6,8 @@ import SingleProduct from '../SingleProduct/SingleProduct';
 
 
 const Products = () => {
-    const { services } = useProducts();
+    const { products } = useProducts();
+
     return (
         <Container sx={{ px: 3, py: 5 }}>
             <Typography style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '20px' }} variant="h4" gutterBottom component="div">
@@ -14,9 +15,9 @@ const Products = () => {
             </Typography>
             <Grid container spacing={2}>
                 {
-                    services?.slice(6, 12)?.map(service => <SingleProduct
-                        service={service}
-                        key={service?._id}
+                    products?.slice(6, 12)?.map(product => <SingleProduct
+                        product={product}
+                        key={product?._id}
                     ></SingleProduct>)
                 }
             </Grid>

@@ -1,15 +1,18 @@
 .order-list {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+    align-items: center;
 }
 
 .order-image {
-    width: 100px;
+    width: 110px;
+    border-radius: 3px;
 }
 
 .order-row {
     margin-bottom: 20px;
-    padding: 15px 30px;
+    padding: 10px;
     box-shadow: 0 0 15px rgb(236, 233, 233);
     border-radius: 9px;
 }
@@ -19,12 +22,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .description-area {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 35%;
 }
 
 .status {
@@ -32,4 +37,17 @@
     margin-top: -5px;
     font-weight: bold;
     color: rgb(0, 136, 118);
+}
+
+@media only screen and (max-width: 600px) {
+    .order-image {
+        width: 100px;
+        border-radius: 3px;
+    }
+    .description-area h5{
+        font-size: 13px;
+    }
+    .description-area h6{
+        font-size: 10px;
+    }
 }

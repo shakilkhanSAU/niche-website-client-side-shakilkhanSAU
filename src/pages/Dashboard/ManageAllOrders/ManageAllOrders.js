@@ -1,11 +1,12 @@
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import useOrders from '../../../hooks/useOrders';
-import './ManageOrders.css'
-const ManageOrders = () => {
+
+const ManageAllOrders = () => {
     const { allOrders, setAllOrders } = useOrders();
 
     const handleUpdate = (id) => {
-        const url = `https://warm-chamber-38340.herokuapp.com/updateOrder/${id}`;
+        const url = `http://localhost:5000/updateOrder/${id}`;
         const findTour = allOrders.find(tour => tour._id === id);
         findTour.status = 'Approved'
         fetch(url, {
@@ -17,6 +18,7 @@ const ManageOrders = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 if (data.modifiedCount) {
                     alert('Order Approved Successfull!')
                     //Find index of specific object using findIndex method.    
@@ -33,7 +35,7 @@ const ManageOrders = () => {
     }
 
     const handleDelete = (id) => {
-        const url = `https://warm-chamber-38340.herokuapp.com/deleteProduct/${id}`;
+        const url = `http://localhost:5000/deleteProduct/${id}`;
         const proceed = window.confirm('Are You Sure! Want to delete? ')
         if (proceed) {
             fetch(url, {
@@ -41,6 +43,7 @@ const ManageOrders = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data)
                     if (data.deletedCount) {
                         alert("Deleted Successfully!")
                         const remainingOrders = allOrders.filter(user => user._id !== id)
@@ -49,7 +52,6 @@ const ManageOrders = () => {
                 })
         }
     }
-
     return (
         <div className="container">
             <h2 className="fw-bold text-center pt-3 pb-2">Manage Orders</h2>
@@ -59,7 +61,7 @@ const ManageOrders = () => {
                         <div className="order-list">
                             <img className="order-image" src={order.img} alt="" />
                             <div className="description-area">
-                                <h5 className="fw-bold">{order.title}</h5>
+                                <h5 className="fw-bold">{order.name}</h5>
                                 <h6 className="fw-bold text-danger">${order.price}</h6>
                                 {
                                     <small className="status">Status: {order.status}</small>
@@ -78,4 +80,4 @@ const ManageOrders = () => {
     );
 };
 
-export default ManageOrders;
+export default ManageAllOrders;

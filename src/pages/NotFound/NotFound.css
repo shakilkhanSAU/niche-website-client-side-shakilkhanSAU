@@ -5,3 +5,12 @@
     padding: 50px 0px;
     background-color: #fff;
 }
+
+.btn-notfound {
+    padding: 6px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: cornflowerblue;
+    border: 2px solid cornflowerblue;
+    color: white;
+}

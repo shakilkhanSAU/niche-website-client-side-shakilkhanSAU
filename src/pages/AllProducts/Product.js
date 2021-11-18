@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const SingleProduct = (props) => {
+const Product = (props) => {
     const { name, price, img, description, _id } = props?.product;
     const url = `/buyNow/${_id}`
 
@@ -32,4 +32,4 @@ const SingleProduct = (props) => {
     );
 };
 
-export default SingleProduct;
+export default Product;

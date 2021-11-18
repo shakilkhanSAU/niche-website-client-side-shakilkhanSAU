@@ -9,8 +9,8 @@ const SingleReview = (props) => {
         <Grid item xs={12} sm={6} md={6} lg={4}>
             <Paper elevation={3} >
                 <Box style={{ display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ fontSize: '40px', padding: '5px', background: '#dee9ff' }}>
-                        <i class="fas fa-user"></i>
+                    <div style={{ fontSize: '40px', paddingLeft: '25px', padding: '5px', background: '#dee9ff' }}>
+                        <i className="fas fa-user"></i>
                         <hr style={{ marginBottom: '10px', marginTop: '5px' }} />
                     </div>
                     <div style={{ textAlign: 'left', paddingLeft: '30px', paddingRight: '30px', paddingBottom: '20px', background: '#dee9ff' }}>
