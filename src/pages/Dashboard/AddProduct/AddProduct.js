@@ -80,7 +80,7 @@ const AddProduct = () => {
                             onBlur={handleOnBlur}
                             sx={{ width: '100%', mb: 1, mt: 1 }}
                         />
-                        <Button variant="contained" type="submit">Place Order</Button>
+                        <Button variant="contained" type="submit">Add Product</Button>
                     </form>
                 </Box>
             </Container>

@@ -13,7 +13,6 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -48,79 +47,73 @@ function Dashboard(props) {
             <Divider />
             <List style={{ paddingLeft: '0px' }}>
                 <ListItem button>
-                    <ListItemText>
-                        <NavLink
-                            style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                            to="/allProducts"
-                        >
-                            Explore Products
-                        </NavLink>
-                    </ListItemText>
+                    <NavLink
+                        style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                        to="/"
+                    >
+                        Home
+                    </NavLink>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText>
-                        <NavLink
-                            style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                            to={`${url}/pay`}
-                        >
-                            Pay Now
-                        </NavLink>
-                    </ListItemText>
+                    <NavLink
+                        style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                        to="/allProducts"
+                    >
+                        Explore Products
+                    </NavLink>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText>
-                        <NavLink
-                            style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                            to={`${url}`}
-                        >
-                            Manage Orders
-                        </NavLink>
-                    </ListItemText>
+                    <NavLink
+                        style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                        to={`${url}/pay`}
+                    >
+                        Pay Now
+                    </NavLink>
+                </ListItem>
+                <ListItem button>
+                    <NavLink
+                        style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                        to={`${url}`}
+                    >
+                        Manage Orders
+                    </NavLink>
                 </ListItem>
                 {
                     admin && <>
                         <ListItem button>
-                            <ListItemText>
-                                <NavLink
-                                    style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                                    to={`${url}/manageAllOrders`}
-                                >
-                                    Manage All Orders
-                                </NavLink>
-                            </ListItemText>
+                            <NavLink
+                                style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                                to={`${url}/manageAllOrders`}
+                            >
+                                Manage All Orders
+                            </NavLink>
                         </ListItem>
                         <ListItem button>
-                            <ListItemText>
-                                <NavLink
-                                    style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                                    to={`${url}/addProduct`}
-                                >
-                                    Add New Product
-                                </NavLink>
-                            </ListItemText>
+                            <NavLink
+                                style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                                to={`${url}/addProduct`}
+                            >
+                                Add New Product
+                            </NavLink>
                         </ListItem>
                         <ListItem button>
-                            <ListItemText>
-                                <NavLink
-                                    style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                                    to={`${url}/makeAdmin`}
-                                >
-                                    Make Admin
-                                </NavLink>
-                            </ListItemText>
+                            <NavLink
+                                style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                                to={`${url}/makeAdmin`}
+                            >
+                                Make Admin
+                            </NavLink>
                         </ListItem>
 
                     </>
                 }
                 <ListItem button>
-                    <ListItemText>
-                        <NavLink
-                            style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931' }}
-                            to={`${url}/review`}
-                        >
-                            Review
-                        </NavLink>
-                    </ListItemText>
+                    <NavLink
+                        style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
+                        to={`${url}/review`}
+                    >
+                        Review
+                    </NavLink>
                 </ListItem>
                 <ListItem button>
                     <button onClick={handleLogOut} style={{ backgroundColor: 'transparent', border: 'none', fontWeight: '500', fontSize: '16px' }}>Log out</button>

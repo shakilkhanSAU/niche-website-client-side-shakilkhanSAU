@@ -7,9 +7,9 @@ const SingleReview = (props) => {
     const { userName, comment, rating } = props?.review;
     return (
         <Grid item xs={12} sm={6} md={6} lg={4}>
-            <Paper elevation={3} >
+            <Paper style={{ height: '100%', background: '#dee9ff' }} elevation={3} >
                 <Box style={{ display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ fontSize: '40px', paddingLeft: '25px', padding: '5px', background: '#dee9ff' }}>
+                    <div style={{ fontSize: '40px', paddingLeft: '30px' }}>
                         <i className="fas fa-user"></i>
                         <hr style={{ marginBottom: '10px', marginTop: '5px' }} />
                     </div>
