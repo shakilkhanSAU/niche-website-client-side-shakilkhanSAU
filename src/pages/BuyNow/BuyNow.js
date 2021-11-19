@@ -99,6 +99,7 @@ const BuyNow = () => {
                             sx={{ width: '100%', mb: 1, mt: 1 }}
                         />
                         <TextField
+                            required
                             id="outlined-basic"
                             label="Your Phone Number"
                             variant="outlined"
@@ -107,6 +108,7 @@ const BuyNow = () => {
                             sx={{ width: '100%', mb: 1, mt: 1 }}
                         />
                         <TextField
+                            required
                             id="outlined-basic"
                             label="Your Address"
                             variant="outlined"

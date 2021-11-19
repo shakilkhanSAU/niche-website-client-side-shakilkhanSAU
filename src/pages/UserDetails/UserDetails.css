@@ -13,6 +13,7 @@
 
 .user-fake-logo {
     font-size: 70px;
+    color: #00B28F;
 }
 
 .user-details h5 {
@@ -26,8 +27,9 @@
 }
 
 .user-welcome {
-    font-size: 18px;
-    color: gray;
+    font-size: 16px;
+    color: rgb(75, 75, 75);
+    text-align: justify;
 }
 
 .user-details-image {
@@ -38,4 +40,17 @@
 
 .user-details-image img {
     width: 150x;
+}
+
+@media only screen and (max-width: 700px) {
+    .user-welcome-text {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .user-welcome {
+        font-size: 15px;
+        color: rgb(14, 13, 13);
+    }
+    
 }

@@ -16,17 +16,21 @@ const UserDetails = () => {
             <div className="user">
                 <div className="user-details">
                     <Row>
-                        <Col md={5} lg={4} xs={12}>
+                        <Col style={{ display: 'flex', justifyContent: 'center' }} md={5} lg={4} xs={12}>
                             <div className="user-details-image">
                                 {
                                     user.photoURL ? <img src={user.photoURL} alt="user" /> :
-                                        <i className="fas fa-user user-fake-logo"></i>
+                                        <div>
+                                            <i className="fas fa-user user-fake-logo"></i>
+                                        </div>
                                 }
                             </div>
                         </Col>
                         <Col md={7} lg={8} xs={12}>
-                            <h5 className="pt-3 pt-md-0">Hey! {user.displayName}</h5>
-                            <span className="user-welcome pt-2">Thank your for choosing us. <span className="fw-bold text-dark">Time<span className="text-danger">Keeper</span></span> is reliable watch seller and service company with specialized advantage and trusted watch provider around the world.</span>
+                            <h5 className="pt-3 pt-md-0 pb-2">Hey! <span style={{ color: '#00B28F' }}>{user.displayName}</span></h5>
+                            <div className="user-welcome-text">
+                                <span className="user-welcome pt-2">Thank your for choosing us. <span className="fw-bold text-dark">Time<span className="text-danger">Keeper</span></span> is reliable watch seller and service company with specialized advantage and trusted watch provider around the world.</span>
+                            </div>
                         </Col>
                     </Row>
                 </div>

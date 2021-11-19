@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { Container } from '@mui/material';
+import { Alert, Container } from '@mui/material';
 import Box from '@mui/material/Box';
+import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 import useAuth from '../../../hooks/useAuth'
 
 const AddReview = () => {
     const [review, setReview] = useState({});
+    const [successMessage, setSuccessMessage] = useState(false);
     const { user } = useAuth();
 
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
         const value = e.target.value;
-        const reviewInfo = { ...review }
+        const reviewInfo = { ...review, userName: user.displayName }
         reviewInfo[field] = value;
         setReview(reviewInfo)
     }
@@ -30,11 +32,20 @@ const AddReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Successfully added review')
+                    setSuccessMessage(true)
                 }
                 e.target.reset()
             })
     }
+
+    // alert set up
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSuccessMessage(false)
+
+    };
 
     return (
         <>
@@ -46,15 +57,13 @@ const AddReview = () => {
                     <form onSubmit={handleAddReview}>
                         <TextField
                             id="outlined-basic"
-                            label="User Name"
+                            label="Your Name"
                             variant="outlined"
+                            defaultValue={user.displayName}
                             name="userName"
-                            value={user.displayName}
-                            required
                             onBlur={handleOnBlur}
                             sx={{ width: '100%', mb: 1, mt: 1 }}
                         />
-
                         <TextField
                             id="outlined-basic"
                             label="Write Your Short Feedback"
@@ -62,7 +71,7 @@ const AddReview = () => {
                             name="comment"
                             required
                             inputProps={{
-                                maxLength: 60,
+                                maxLength: 100,
                             }}
                             onBlur={handleOnBlur}
                             sx={{ width: '100%', mb: 2, mt: 1 }}
@@ -81,6 +90,12 @@ const AddReview = () => {
                         <Button variant="contained" type="submit">Add Review</Button>
                     </form>
                 </Box>
+                {/* snackbar */}
+                <Snackbar open={successMessage} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        Thank's {user.displayName} for your feedback!
+                    </Alert>
+                </Snackbar>
             </Container>
         </>
     );

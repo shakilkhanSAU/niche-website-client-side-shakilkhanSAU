@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import './Banner.css'
 
 const Banner = () => {
@@ -11,7 +12,7 @@ const Banner = () => {
                     <p>We have made the most advanced, constumizable & user friendly hand watch in the world.</p>
                     <div className="btn-area">
                         <div>
-                            <button className="btn-banner">Explore More</button>
+                            <NavLink to="allProducts"><button className="btn-banner">Explore More</button></NavLink>
                         </div>
                     </div>
                 </Col>

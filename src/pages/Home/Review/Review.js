@@ -6,6 +6,7 @@ import SingleReview from './SingleReview';
 
 const Reviews = () => {
     const { reviews } = useReviews();
+    console.log(reviews)
     return (
         <Container sx={{ width: '100%', px: 3, py: 5 }}>
             <Typography style={{ fontWeight: 'bold', marginBottom: '20px' }} variant="h4" gutterBottom component="div">
