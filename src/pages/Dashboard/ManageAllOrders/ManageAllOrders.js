@@ -23,7 +23,7 @@ const ManageAllOrders = () => {
                     alert('Order Approved Successfull!')
                     //Find index of specific object using findIndex method.    
                     const objIndex = allOrders.findIndex((obj => obj._id === id));
-                    allOrders[objIndex].status = 'Approved'
+                    allOrders[objIndex].status = 'Shipped'
                     //Update object's name property.
                     const updatedOrders = [...allOrders]
                     setAllOrders(updatedOrders)
