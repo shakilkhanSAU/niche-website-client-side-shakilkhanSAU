@@ -19,7 +19,7 @@ const AddProduct = () => {
 
     const handleAddProduct = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/products', {
+        fetch('https://whispering-tor-67182.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

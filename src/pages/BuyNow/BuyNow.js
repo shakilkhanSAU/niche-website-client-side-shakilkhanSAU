@@ -23,13 +23,13 @@ const BuyNow = () => {
 
     const email = user.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://whispering-tor-67182.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data)
                 console.log(data)
             })
-    }, [email])
+    }, [email, successMessage])
     console.log('this is myOrders', myOrders)
 
     const findProduct = products?.find(product => product?._id === id);
@@ -55,16 +55,16 @@ const BuyNow = () => {
         e.preventDefault();
         // send data to server
         const exist = myOrders.find(order => order._id === id)
-        console.log('this is exist', exist)
         const order = {
-            ...exist, ...orderInfo
+            ...orderInfo, ...findProduct
         }
+
         if (exist) {
             setErrorMessage(true)
             return;
         }
         if (!exist) {
-            fetch('http://localhost:5000/addOrder', {
+            fetch('https://whispering-tor-67182.herokuapp.com/addOrder', {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json"

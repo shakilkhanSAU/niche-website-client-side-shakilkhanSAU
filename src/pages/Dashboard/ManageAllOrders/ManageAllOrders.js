@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
     const { allOrders, setAllOrders } = useOrders();
 
     const handleUpdate = (id) => {
-        const url = `http://localhost:5000/updateOrder/${id}`;
+        const url = `https://whispering-tor-67182.herokuapp.com/updateOrder/${id}`;
         const findTour = allOrders.find(tour => tour._id === id);
         findTour.status = 'Approved'
         fetch(url, {
@@ -35,7 +35,7 @@ const ManageAllOrders = () => {
     }
 
     const handleDelete = (id) => {
-        const url = `http://localhost:5000/deleteProduct/${id}`;
+        const url = `https://whispering-tor-67182.herokuapp.com/deleteProduct/${id}`;
         const proceed = window.confirm('Are You Sure! Want to delete? ')
         if (proceed) {
             fetch(url, {

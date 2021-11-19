@@ -6,12 +6,12 @@ const useMyOrders = () => {
     const email = user.email;
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://whispering-tor-67182.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data)
             })
-    }, [])
+    }, [email])
     return {
         myOrders,
         setMyOrders

@@ -8,19 +8,20 @@ import useMyOrders from '../../../hooks/useMyOrders';
 
 const MyOrders = () => {
     const { myOrders, setMyOrders } = useMyOrders();
+
     const handleDelete = (id) => {
         const proceed = window.confirm('Are You Sure! Want to delete? ')
         if (proceed) {
-            const url = `http://localhost:5000/deleteOrder/${id}`;
+            const url = `https://whispering-tor-67182.herokuapp.com/cancelOrder/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     if (data.deletedCount) {
                         alert("Deleted Successfully!")
                         const remainingOrders = myOrders.filter(user => user._id !== id)
+                        console.log(remainingOrders)
                         setMyOrders(remainingOrders)
                     }
                 })
