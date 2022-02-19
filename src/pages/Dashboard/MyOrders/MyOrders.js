@@ -50,7 +50,7 @@ const MyOrders = () => {
                                         myOrder?.payment ?
                                             <h6 className="fw-bold text-success">paid</h6>
                                             :
-                                            <Link style={{ textDecoration: 'none' }} to="">
+                                            <Link style={{ textDecoration: 'none' }} to={`dashboard/payment/${myOrder._id}`}>
                                                 <Button style={{ color: 'crimson' }}>Pay Now</Button>
                                             </Link>
                                     }

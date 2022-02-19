@@ -27,7 +27,6 @@ const BuyNow = () => {
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data)
-                console.log(data)
             })
     }, [email, successMessage])
     console.log('this is myOrders', myOrders)

@@ -63,22 +63,22 @@ function Dashboard(props) {
                         Explore Products
                     </NavLink>
                 </ListItem>
-                <ListItem button>
+                {/* <ListItem button>
                     <NavLink
                         style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
                         to={`${url}/pay`}
                     >
                         Pay Now
                     </NavLink>
-                </ListItem>
-                <ListItem button>
+                </ListItem> */}
+                {/* <ListItem button>
                     <NavLink
                         style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
                         to={`${url}`}
                     >
                         Manage Orders
                     </NavLink>
-                </ListItem>
+                </ListItem> */}
                 {
                     admin && <>
                         <ListItem button>
@@ -194,7 +194,7 @@ function Dashboard(props) {
                         <Route exact path={path}>
                             <MyOrders></MyOrders>
                         </Route>
-                        <Route exact path={`${path}/pay`}>
+                        <Route path={`${path}/payment/:orderId`}>
                             <Payment></Payment>
                         </Route>
                         <AdminRoute path={`${path}/makeAdmin`}>
