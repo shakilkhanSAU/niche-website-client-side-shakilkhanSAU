@@ -58,7 +58,6 @@ const BuyNow = () => {
         const order = {
             ...orderInfo, ...findProduct
         }
-
         if (exist) {
             setErrorMessage(true)
             return;

@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import './MyOrder.css'
 import Box from '@mui/material/Box';
 import useMyOrders from '../../../hooks/useMyOrders';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 // import MyOrder from './MyOrder';
 
 const MyOrders = () => {
@@ -41,6 +43,16 @@ const MyOrders = () => {
                                     <h6 className="fw-bold text-danger">${myOrder?.price}</h6>
                                     {
                                         <small className="status">Status: {myOrder?.status}</small>
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        myOrder?.payment ?
+                                            <h6 className="fw-bold text-success">paid</h6>
+                                            :
+                                            <Link style={{ textDecoration: 'none' }} to="">
+                                                <Button style={{ color: 'crimson' }}>Pay Now</Button>
+                                            </Link>
                                     }
                                 </div>
                                 <div className="manage-area">
