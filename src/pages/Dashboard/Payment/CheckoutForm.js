@@ -14,7 +14,6 @@ const CheckoutForm = ({ order }) => {
 
     const price = order.price;
     const _id = order._id;
-    console.log(_id)
     const { user } = useAuth();
 
     // alert set up
