@@ -71,14 +71,14 @@ function Dashboard(props) {
                         Pay Now
                     </NavLink>
                 </ListItem> */}
-                {/* <ListItem button>
+                <ListItem button>
                     <NavLink
                         style={{ fontWeight: '500', fontSize: '16px', textDecoration: 'none', color: '#151931', width: '100%' }}
                         to={`${url}`}
                     >
-                        Manage Orders
+                        My Orders
                     </NavLink>
-                </ListItem> */}
+                </ListItem>
                 {
                     admin && <>
                         <ListItem button>

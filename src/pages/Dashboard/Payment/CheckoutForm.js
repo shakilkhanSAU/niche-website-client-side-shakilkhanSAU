@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Alert, Button, Container, Snackbar } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Alert, Button, CircularProgress, Container, Snackbar } from '@mui/material';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import useAuth from '../../../hooks/useAuth';
 
 
 const CheckoutForm = ({ order }) => {
@@ -8,6 +9,13 @@ const CheckoutForm = ({ order }) => {
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('')
+    const [clientSecret, setClientSecret] = useState('')
+    const [processing, setProcessing] = useState(false)
+
+    const price = order.price;
+    const _id = order._id;
+    console.log(_id)
+    const { user } = useAuth();
 
     // alert set up
     const handleClose = (reason) => {
@@ -31,6 +39,7 @@ const CheckoutForm = ({ order }) => {
             return;
         }
 
+        setProcessing(true)
         // create payment method
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
@@ -40,11 +49,64 @@ const CheckoutForm = ({ order }) => {
             setErrorMessage(error?.message)
 
         } else {
-            if (paymentMethod.id) {
-                setSuccessMessage('Payment Complete Successfully!')
-            }
+            setSuccessMessage('Payment Complete Successfully!')
         }
+        //confirm payment intent
+        const { paymentIntent, intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: user.displayName,
+                        email: user.email
+                    },
+                },
+            },
+        )
+        if (intentError) {
+            setErrorMessage(intentError.message)
+            setSuccessMessage('')
+        }
+        else {
+            setErrorMessage('')
+            setSuccessMessage(`Payment Complete confirmed`)
+            console.log(paymentIntent)
+            setProcessing(false)
+
+            // save payment info to servre
+            const payment = {
+                amount: paymentIntent.amount,
+                transaction: paymentIntent.client_secret.slice('_secret')[0],
+                created: paymentIntent.created
+            }
+            const url = `http://localhost:5000/payment/${_id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+        }
+
     }
+
+    // fetching  payment intent
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ price })
+        })
+            .then(res => res.json())
+            .then(data => setClientSecret(data.clientSecret))
+
+    }, [price])
 
     return (
         <div>
@@ -66,9 +128,12 @@ const CheckoutForm = ({ order }) => {
                             },
                         }}
                     />
-                    <Button type="submit" disabled={!stripe}>
-                        Pay ${order.price}
-                    </Button>
+                    {processing ? <CircularProgress></CircularProgress>
+                        :
+                        <Button type="submit" disabled={!stripe}>
+                            Pay ${price}
+                        </Button>
+                    }
                 </form>
             </Container>
             {/* snackbar */}
