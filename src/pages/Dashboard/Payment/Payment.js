@@ -18,7 +18,7 @@ const Payment = () => {
         appearance,
     };
     useEffect(() => {
-        fetch(`http://localhost:5000/payment/${orderId}`)
+        fetch(`https://whispering-tor-67182.herokuapp.com/payment/${orderId}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [orderId])

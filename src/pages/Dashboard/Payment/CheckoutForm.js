@@ -80,7 +80,7 @@ const CheckoutForm = ({ order }) => {
                 transaction: paymentIntent.client_secret.slice('_secret')[0],
                 created: paymentIntent.created
             }
-            const url = `http://localhost:5000/payment/${_id}`;
+            const url = `https://whispering-tor-67182.herokuapp.com/payment/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -96,7 +96,7 @@ const CheckoutForm = ({ order }) => {
 
     // fetching  payment intent
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://whispering-tor-67182.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
